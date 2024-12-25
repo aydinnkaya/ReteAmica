@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0F6392172D1C4736001EC0C0 /* Exceptions for "ReteAmica" folder in "ReteAmica" target */ = {
+		0F63923F2D1C4C94001EC0C0 /* Exceptions for "ReteAmica" folder in "ReteAmica" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0F6392072D1C4733001EC0C0 /* ReteAmica */ = {
+		0F6392382D1C4C94001EC0C0 /* ReteAmica */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0F6392172D1C4736001EC0C0 /* Exceptions for "ReteAmica" folder in "ReteAmica" target */,
+				0F63923F2D1C4C94001EC0C0 /* Exceptions for "ReteAmica" folder in "ReteAmica" target */,
 			);
 			path = ReteAmica;
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		0F6391FC2D1C4733001EC0C0 = {
 			isa = PBXGroup;
 			children = (
-				0F6392072D1C4733001EC0C0 /* ReteAmica */,
+				0F6392382D1C4C94001EC0C0 /* ReteAmica */,
 				0F6392062D1C4733001EC0C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0F6392072D1C4733001EC0C0 /* ReteAmica */,
+				0F6392382D1C4C94001EC0C0 /* ReteAmica */,
 			);
 			name = ReteAmica;
 			packageProductDependencies = (
