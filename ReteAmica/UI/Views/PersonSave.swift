@@ -31,7 +31,6 @@ class PersonSave: UIViewController {
             personSave(kisi_ad: personName, kisi_tel: personPhone)
         }
         
-        
     }
     
     func personSave(kisi_ad:String, kisi_tel:String){
