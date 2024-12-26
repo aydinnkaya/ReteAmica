@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KisilerVC: UIViewController {
+class PersonVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
