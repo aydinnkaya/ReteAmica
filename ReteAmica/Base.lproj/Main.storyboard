@@ -132,7 +132,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YEf-lJ-M8H">
-                                <rect key="frame" x="25" y="559" width="343" height="36"/>
+                                <rect key="frame" x="25" y="559" width="343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="3sO-lH-ic1"/>
                                 </constraints>
@@ -140,7 +140,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tWv-9R-1MH">
-                                <rect key="frame" x="25" y="611" width="343" height="34"/>
+                                <rect key="frame" x="25" y="609" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="pqa-qJ-4dy"/>
                                 </constraints>
@@ -454,7 +454,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

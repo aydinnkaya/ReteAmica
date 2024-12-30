@@ -14,7 +14,7 @@
 		0F63923F2D1C4C94001EC0C0 /* Exceptions for "ReteAmica" folder in "ReteAmica" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				other/Info.plist,
 			);
 			target = 0F6392042D1C4733001EC0C0 /* ReteAmica */;
 		};
