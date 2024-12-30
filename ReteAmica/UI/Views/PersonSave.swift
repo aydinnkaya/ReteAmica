@@ -15,8 +15,6 @@ class PersonSave: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
     
     @IBAction func buttonCancel(_ sender: Any) {

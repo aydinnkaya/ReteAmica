@@ -14,7 +14,6 @@ class PersonVC: UIViewController{
     var personList = [Kisiler]()
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +31,6 @@ class PersonVC: UIViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "personDetail" {
             if let person = sender as? Kisiler {
                 let transtatitonVC = segue.destination as! DetailVC
@@ -53,6 +51,8 @@ extension PersonVC : UISearchBarDelegate {
     }
 }
 
+
+
 extension PersonVC : UITableViewDelegate, UITableViewDataSource{
     
     
@@ -62,7 +62,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let person = personList[indexPath.row] // all list find
+        let person = personList[indexPath.row]  // all list find
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell") as! PersonTableViewCell
         
         cell.labelName.text = person.kisi_ad
@@ -79,7 +79,30 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { contextualAction,view,bool in
+            
+            let person = self.personList[indexPath.row]
+            
+            
+            let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
+            
+            let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
+                
+            }
+            
+            let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )
+            
+            alert.addAction(alertActionC)
+            alert.addAction(alertActionY)
+            
+            self.present(alert, animated: true)
+            
+        })
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     
 }
 

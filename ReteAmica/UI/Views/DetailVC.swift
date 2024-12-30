@@ -22,7 +22,6 @@ class DetailVC: UIViewController {
         
             tfFirstName.text = k.kisi_ad
             tfPhone.text = k.kisi_tel
-
         }
 
     }
