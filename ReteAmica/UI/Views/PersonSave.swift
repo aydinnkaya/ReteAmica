@@ -12,6 +12,8 @@ class PersonSave: UIViewController {
     @IBOutlet weak var tfPersonPhone: UITextField!
     @IBOutlet weak var tfPersonLastName: UITextField!
     
+    var viewModel = PersonSaveVM()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +26,13 @@ class PersonSave: UIViewController {
     
     
     @IBAction func buttonDone(_ sender: UIBarButtonItem) {
-        
+
         if let personName = tfPersonName.text , let personPhone = tfPersonPhone.text {
-            personSave(kisi_ad: personName, kisi_tel: personPhone)
+            viewModel.personSave(kisi_ad: personName, kisi_tel: personPhone)
         }
         
     }
     
-    func personSave(kisi_ad:String, kisi_tel:String){
-        
-
-    }
     
-
+    
 }
