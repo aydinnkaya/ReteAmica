@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KisilerVC: UIViewController{
+class PersonVC: UIViewController{
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -45,7 +45,7 @@ class KisilerVC: UIViewController{
     
 }
 
-extension KisilerVC : UISearchBarDelegate {
+extension PersonVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.personSearch(inputText: searchText)
@@ -54,7 +54,7 @@ extension KisilerVC : UISearchBarDelegate {
 
 
 
-extension KisilerVC : UITableViewDelegate, UITableViewDataSource{
+extension PersonVC : UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
