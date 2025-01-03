@@ -12,8 +12,9 @@ class PersonVm{
     
     var pRepo = PersonDaoRepository()
     var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
-
+    
     init() {
+        veritabaniKopyala()
         self.personList = pRepo.personList
         personLoading()
     }
@@ -28,6 +29,24 @@ class PersonVm{
     
     func personLoading(){
         pRepo.personLoading()
+    }
+    
+    
+    func veritabaniKopyala(){
+        let bundleYolu = Bundle.main.path(forResource: "rehber", ofType: ".sqlite")
+        let hedefYol = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let kopyalanacakYer = URL(fileURLWithPath: hedefYol).appendingPathComponent("rehber.sqlite")
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: kopyalanacakYer.path){
+            print("Veritabanı zaten var")
+        }else{
+            do{
+                try fileManager.copyItem(atPath: bundleYolu!, toPath: kopyalanacakYer.path)
+            }catch{
+                
+                print("SQL Copy Hatası: \(error.localizedDescription)")
+            }
+        }
     }
     
 }

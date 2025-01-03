@@ -18,13 +18,13 @@ class PersonVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
-        personTableView.delegate = self
-        personTableView.dataSource = self
+        searchBar?.delegate = self
+        personTableView?.delegate = self
+        personTableView?.dataSource = self
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
-            self.personTableView.reloadData()
+            self.personTableView?.reloadData()
         })
         
     }
