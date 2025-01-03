@@ -11,6 +11,14 @@ import RxSwift
 
 class PersonDaoRepository {
     
+    var db : FMDatabase? 
+    
+    
+    init() {
+        
+        
+    }
+    
     var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
     
     func personSave(kisi_ad:String, kisi_tel:String){
@@ -27,18 +35,24 @@ class PersonDaoRepository {
     }
     
     func personSearch(inputText: String){
-        
+        print("")
     }
     
     func personLoading(){
-        var list = Kisiler()
-        let initialList = [
-            Kisiler(kisi_id: 1, kisi_ad: "Aydin", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 2, kisi_ad: "Kelebek", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 3, kisi_ad: "Bebis", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 4, kisi_ad: "Hatun", kisi_tel: "5314681288")
-        ]
-        personList.onNext(initialList)
+        
+        /*
+         let initialList = [
+         Kisiler(kisi_id: 1, kisi_ad: "Aydin", kisi_tel: "5314681288"),
+         Kisiler(kisi_id: 2, kisi_ad: "Kelebek", kisi_tel: "5314681288"),
+         Kisiler(kisi_id: 3, kisi_ad: "Bebis", kisi_tel: "5314681288"),
+         Kisiler(kisi_id: 4, kisi_ad: "Hatun", kisi_tel: "5314681288")
+         ]
+         personList.onNext(initialList)
+         
+         */
+        
+        
+        
     }
     
 }

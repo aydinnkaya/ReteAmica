@@ -12,8 +12,9 @@ class PersonVm{
     
     var pRepo = PersonDaoRepository()
     var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
-
+    
     init() {
+        veritabaniKopyala()
         self.personList = pRepo.personList
         personLoading()
     }
@@ -29,5 +30,8 @@ class PersonVm{
     func personLoading(){
         pRepo.personLoading()
     }
+    
+    
+   
     
 }
