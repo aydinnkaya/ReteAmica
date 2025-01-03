@@ -12,6 +12,7 @@ class PersonVC: UIViewController{
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var personList = [Kisiler]()
+    var viewModel = PersonDaoRepository()
     
     
     override func viewDidLoad() {
@@ -21,13 +22,15 @@ class PersonVC: UIViewController{
         personTableView.delegate = self
         personTableView.dataSource = self
         
-        let p1 = Kisiler(kisi_id: 1, kisi_ad: "Aydin", kisi_tel: "5314681288")
-        let p2 = Kisiler(kisi_id: 2, kisi_ad: "Kelebek", kisi_tel:"5314681288")
-        let p3 = Kisiler(kisi_id: 3, kisi_ad: "Bebis", kisi_tel: "5314681288")
-        let p4 = Kisiler(kisi_id: 4, kisi_ad: "Hatun", kisi_tel: "5314681288")
+        _ = viewModel.personList.subscribe(onNext: { list in
+            self.personList = list
+            self.personTableView.reloadData()
+        })
         
-        personList += [p1,p2,p3,p4]
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.personLoading()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,9 +48,7 @@ class PersonVC: UIViewController{
 extension PersonVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("Person Search : \(searchText)")
-        
+        viewModel.personSearch(inputText: searchText)
     }
 }
 
@@ -89,7 +90,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
             
             let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
-                
+                self.viewModel.personDelete(kisi_id: person.kisi_id!)
             }
             
             let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )
