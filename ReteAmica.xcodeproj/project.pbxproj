@@ -6,19 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		0FE281CB2D26C38900822211 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281CA2D26C38900822211 /* RxBlocking */; };
-		0FE281CD2D26C38900822211 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281CC2D26C38900822211 /* RxBlocking-Dynamic */; };
-		0FE281CF2D26C38900822211 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281CE2D26C38900822211 /* RxCocoa */; };
-		0FE281D12D26C38900822211 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281D02D26C38900822211 /* RxCocoa-Dynamic */; };
-		0FE281D32D26C38900822211 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281D22D26C38900822211 /* RxRelay */; };
-		0FE281D52D26C38900822211 /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281D42D26C38900822211 /* RxRelay-Dynamic */; };
-		0FE281D72D26C38900822211 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281D62D26C38900822211 /* RxSwift */; };
-		0FE281D92D26C38900822211 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281D82D26C38900822211 /* RxSwift-Dynamic */; };
-		0FE281DB2D26C38900822211 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281DA2D26C38900822211 /* RxTest */; };
-		0FE281DD2D26C38900822211 /* RxTest-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE281DC2D26C38900822211 /* RxTest-Dynamic */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		0F6392052D1C4733001EC0C0 /* ReteAmica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReteAmica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,16 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE281D92D26C38900822211 /* RxSwift-Dynamic in Frameworks */,
-				0FE281DB2D26C38900822211 /* RxTest in Frameworks */,
-				0FE281D32D26C38900822211 /* RxRelay in Frameworks */,
-				0FE281D12D26C38900822211 /* RxCocoa-Dynamic in Frameworks */,
-				0FE281D52D26C38900822211 /* RxRelay-Dynamic in Frameworks */,
-				0FE281CF2D26C38900822211 /* RxCocoa in Frameworks */,
-				0FE281CB2D26C38900822211 /* RxBlocking in Frameworks */,
-				0FE281CD2D26C38900822211 /* RxBlocking-Dynamic in Frameworks */,
-				0FE281DD2D26C38900822211 /* RxTest-Dynamic in Frameworks */,
-				0FE281D72D26C38900822211 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,16 +78,6 @@
 			);
 			name = ReteAmica;
 			packageProductDependencies = (
-				0FE281CA2D26C38900822211 /* RxBlocking */,
-				0FE281CC2D26C38900822211 /* RxBlocking-Dynamic */,
-				0FE281CE2D26C38900822211 /* RxCocoa */,
-				0FE281D02D26C38900822211 /* RxCocoa-Dynamic */,
-				0FE281D22D26C38900822211 /* RxRelay */,
-				0FE281D42D26C38900822211 /* RxRelay-Dynamic */,
-				0FE281D62D26C38900822211 /* RxSwift */,
-				0FE281D82D26C38900822211 /* RxSwift-Dynamic */,
-				0FE281DA2D26C38900822211 /* RxTest */,
-				0FE281DC2D26C38900822211 /* RxTest-Dynamic */,
 			);
 			productName = ReteAmica;
 			productReference = 0F6392052D1C4733001EC0C0 /* ReteAmica.app */;
@@ -141,7 +108,6 @@
 			mainGroup = 0F6391FC2D1C4733001EC0C0;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F6392062D1C4733001EC0C0 /* Products */;
@@ -369,70 +335,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.8.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0FE281CA2D26C38900822211 /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		0FE281CC2D26C38900822211 /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
-		0FE281CE2D26C38900822211 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		0FE281D02D26C38900822211 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
-		};
-		0FE281D22D26C38900822211 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		0FE281D42D26C38900822211 /* RxRelay-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxRelay-Dynamic";
-		};
-		0FE281D62D26C38900822211 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		0FE281D82D26C38900822211 /* RxSwift-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxSwift-Dynamic";
-		};
-		0FE281DA2D26C38900822211 /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
-		};
-		0FE281DC2D26C38900822211 /* RxTest-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0FE281C92D26C38900822211 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxTest-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F6391FD2D1C4733001EC0C0 /* Project object */;
 }
