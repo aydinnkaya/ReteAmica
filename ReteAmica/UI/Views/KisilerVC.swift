@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonVC: UIViewController{
+class KisilerVC: UIViewController{
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,13 +18,13 @@ class PersonVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
-        personTableView.delegate = self
-        personTableView.dataSource = self
+        searchBar?.delegate = self
+        personTableView?.delegate = self
+        personTableView?.dataSource = self
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
-            self.personTableView.reloadData()
+            self.personTableView?.reloadData()
         })
         
     }
@@ -45,7 +45,7 @@ class PersonVC: UIViewController{
     
 }
 
-extension PersonVC : UISearchBarDelegate {
+extension KisilerVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.personSearch(inputText: searchText)
@@ -54,7 +54,7 @@ extension PersonVC : UISearchBarDelegate {
 
 
 
-extension PersonVC : UITableViewDelegate, UITableViewDataSource{
+extension KisilerVC : UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
