@@ -12,9 +12,9 @@ class DetailVM{
     
     var pRepo = PersonDaoRepository()
     
-    func personUpdate(kisi_id: Int, kisi_ad:String, kisi_tel:String){
+    func personUpdate(kisi: KisilerModel, kisi_ad:String, kisi_tel:String){
     
-        pRepo.personUpdate(kisi_id: kisi_id, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
+        pRepo.personUpdate(kisi: kisi, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
 
     }
     

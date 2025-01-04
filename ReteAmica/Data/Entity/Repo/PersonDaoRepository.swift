@@ -11,26 +11,19 @@ import RxSwift
 
 class PersonDaoRepository {
     
-    var db : FMDatabase? 
     
-    
-    init() {
-        
-        
-    }
-    
-    var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var personList = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
     
     func personSave(kisi_ad:String, kisi_tel:String){
         print("Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
     }
     
     
-    func personUpdate(kisi_id: Int, kisi_ad:String, kisi_tel:String){
-        print("Kisi id: \(kisi_id), Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
+    func personUpdate(kisi: KisilerModel, kisi_ad:String, kisi_tel:String){ // id changed Object
+        print("Kisi id: \(kisi), Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
     }
     
-    func personDelete(kisi_id: Int){
+    func personDelete(kisi: KisilerModel){
         
     }
     

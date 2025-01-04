@@ -11,16 +11,15 @@ import RxSwift
 class PersonVm{
     
     var pRepo = PersonDaoRepository()
-    var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var personList = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
     
     init() {
-        veritabaniKopyala()
         self.personList = pRepo.personList
         personLoading()
     }
     
-    func personDelete(kisi_id: Int){
-        pRepo.personDelete(kisi_id: kisi_id)
+    func personDelete(kisi: KisilerModel){
+        pRepo.personDelete(kisi: kisi)
     }
     
     func personSearch(inputText: String){

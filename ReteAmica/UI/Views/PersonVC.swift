@@ -11,7 +11,7 @@ class PersonVC: UIViewController{
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    var personList = [Kisiler]()
+    var personList = [KisilerModel]()
     var viewModel = PersonDaoRepository()
     
     
@@ -35,7 +35,7 @@ class PersonVC: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "personDetail" {
-            if let person = sender as? Kisiler {
+            if let person = sender as? KisilerModel {
                 let transtatitonVC = segue.destination as! DetailVC
                 transtatitonVC.kisi = person
             }
@@ -90,7 +90,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
             
             let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
-                self.viewModel.personDelete(kisi_id: person.kisi_id!)
+                self.viewModel.personDelete(kisi: person)
             }
             
             let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )
