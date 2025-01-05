@@ -7,45 +7,60 @@
 
 import Foundation
 import RxSwift
+import CoreData
 
 
 class PersonDaoRepository {
     
-    
     var personList = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
+    let context = appDelegate.persistentContainer.viewContext // acces database
     
     func personSave(kisi_ad:String, kisi_tel:String){
-        print("Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
+        let kisi = KisilerModel(context: context)
+        kisi.kisi_ad = kisi_ad
+        kisi.kisi_tel = kisi_tel
+        
+        appDelegate.saveContext()
     }
+    
     
     
     func personUpdate(kisi: KisilerModel, kisi_ad:String, kisi_tel:String){ // id changed Object
-        print("Kisi id: \(kisi), Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
+        kisi.kisi_ad = kisi_ad
+        kisi.kisi_tel = kisi_tel
+        appDelegate.saveContext()
     }
     
     func personDelete(kisi: KisilerModel){
-        
+        context.delete(kisi)
+        appDelegate.saveContext()
+        personLoading()
     }
     
     func personSearch(inputText: String){
-        print("")
+        do{
+            let fr = KisilerModel.fetchRequest()
+            fr.predicate = NSPredicate(format: "kisi_ad CONTAINS [c] %@", inputText)
+            
+            let liste = try context.fetch(fr)
+            personList.onNext(liste)
+            
+        }catch{
+            print(error.localizedDescription)
+            
+        }
     }
     
     func personLoading(){
         
-        /*
-         let initialList = [
-         Kisiler(kisi_id: 1, kisi_ad: "Aydin", kisi_tel: "5314681288"),
-         Kisiler(kisi_id: 2, kisi_ad: "Kelebek", kisi_tel: "5314681288"),
-         Kisiler(kisi_id: 3, kisi_ad: "Bebis", kisi_tel: "5314681288"),
-         Kisiler(kisi_id: 4, kisi_ad: "Hatun", kisi_tel: "5314681288")
-         ]
-         personList.onNext(initialList)
-         
-         */
-        
-        
-        
+        do{
+            let liste = try context.fetch(KisilerModel.fetchRequest())
+            personList.onNext(liste)
+            
+        }catch{
+            print(error.localizedDescription)
+            
+        }
     }
     
 }

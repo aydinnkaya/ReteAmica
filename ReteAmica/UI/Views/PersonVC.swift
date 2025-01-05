@@ -12,21 +12,26 @@ class PersonVC: UIViewController{
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var personList = [KisilerModel]()
-    var viewModel = PersonDaoRepository()
+    var viewModel = PersonVm()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        personTableView.delegate = self
+        personTableView.dataSource = self
         
-        searchBar?.delegate = self
-        personTableView?.delegate = self
-        personTableView?.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshPersonList), name: NSNotification.Name("PersonListUpdated"), object: nil)
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
             self.personTableView?.reloadData()
         })
         
+    }
+    
+    @objc func refreshPersonList() {
+        viewModel.personLoading()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,11 +50,19 @@ class PersonVC: UIViewController{
     
 }
 
+
+
+
 extension PersonVC : UISearchBarDelegate {
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.personSearch(inputText: searchText)
+        if searchText == "" {
+            viewModel.personLoading()
+        }else{
+            viewModel.personSearch(inputText: searchText)
+        }
     }
+    
 }
 
 
