@@ -24,7 +24,9 @@ class PersonVC: UIViewController{
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
-            self.personTableView.reloadData()
+            DispatchQueue.main.async {
+                self.personTableView.reloadData()
+            }
         })
         
     }
@@ -90,7 +92,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
             
             let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
-                self.viewModel.personDelete(kisi_id: person.kisi_id!)
+                self.viewModel.personDelete(kisi_id: Int(person.kisi_id!)!)
             }
             
             let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )

@@ -31,7 +31,7 @@ class DetailVC: UIViewController {
     @IBAction func buttonUpdate(_ sender: UIButton) {
         
         if let personName = tfFirstName.text, let personPhone = tfPhone.text, let personId = kisi?.kisi_id {
-            viewModel.personUpdate(kisi_id: personId, kisi_ad: personName, kisi_tel: personPhone)
+            viewModel.personUpdate(kisi_id: Int(personId)!, kisi_ad: personName, kisi_tel: personPhone)
         }
     }
     

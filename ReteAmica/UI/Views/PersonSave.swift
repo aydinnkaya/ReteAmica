@@ -14,7 +14,6 @@ class PersonSave: UIViewController {
     
     var viewModel = PersonSaveVM()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,7 +28,11 @@ class PersonSave: UIViewController {
 
         if let personName = tfPersonName.text , let personPhone = tfPersonPhone.text {
             viewModel.personSave(kisi_ad: personName, kisi_tel: personPhone)
+            
         }
+        
+        self.dismiss(animated: true)
+
         
     }
     

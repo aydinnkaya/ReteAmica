@@ -416,7 +416,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oec-HZ-wvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="1082"/>
+            <point key="canvasLocation" x="2115" y="1077"/>
         </scene>
         <!--Keypad-->
         <scene sceneID="gp0-xE-rNf">
