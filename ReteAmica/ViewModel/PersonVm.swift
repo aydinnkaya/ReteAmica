@@ -11,16 +11,15 @@ import RxSwift
 class PersonVm{
     
     var pRepo = PersonDaoRepository()
-    var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var personList = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
     
     init() {
-        veritabaniKopyala()
         self.personList = pRepo.personList
         personLoading()
     }
     
-    func personDelete(kisi_id: Int){
-        pRepo.personDelete(kisi_id: kisi_id)
+    func personDelete(kisi: KisilerModel){
+        pRepo.personDelete(kisi: kisi)
     }
     
     func personSearch(inputText: String){
@@ -32,21 +31,6 @@ class PersonVm{
     }
     
     
-    func veritabaniKopyala(){
-        let bundleYolu = Bundle.main.path(forResource: "rehber", ofType: ".sqlite")
-        let hedefYol = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let kopyalanacakYer = URL(fileURLWithPath: hedefYol).appendingPathComponent("rehber.sqlite")
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: kopyalanacakYer.path){
-            print("Veritabanı zaten var")
-        }else{
-            do{
-                try fileManager.copyItem(atPath: bundleYolu!, toPath: kopyalanacakYer.path)
-            }catch{
-                
-                print("SQL Copy Hatası: \(error.localizedDescription)")
-            }
-        }
-    }
+   
     
 }

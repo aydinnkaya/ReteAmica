@@ -26,10 +26,15 @@ class PersonSave: UIViewController {
     
     
     @IBAction func buttonDone(_ sender: UIBarButtonItem) {
-
+        
         if let personName = tfPersonName.text , let personPhone = tfPersonPhone.text {
             viewModel.personSave(kisi_ad: personName, kisi_tel: personPhone)
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("PersonListUpdated"), object: nil)
+        
+        self.dismiss(animated: true)
+        
         
     }
     

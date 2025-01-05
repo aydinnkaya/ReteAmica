@@ -12,7 +12,6 @@
 
 /* Begin PBXFileReference section */
 		0F6392052D1C4733001EC0C0 /* ReteAmica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReteAmica.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FE6B4B82D27FB550026BAB3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				0F6392382D1C4C94001EC0C0 /* ReteAmica */,
-				0FE6B4B72D27FB550026BAB3 /* Frameworks */,
 				0F6392062D1C4733001EC0C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,14 +61,6 @@
 				0F6392052D1C4733001EC0C0 /* ReteAmica.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0FE6B4B72D27FB550026BAB3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0FE6B4B82D27FB550026BAB3 /* libsqlite3.tbd */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +171,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aydinkaya.ReteAmica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ReteAmica/ReteAmica-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -211,7 +201,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aydinkaya.ReteAmica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ReteAmica/ReteAmica-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

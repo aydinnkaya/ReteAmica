@@ -11,16 +11,17 @@ class PersonVC: UIViewController{
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    var personList = [Kisiler]()
-    var viewModel = PersonDaoRepository()
+    var personList = [KisilerModel]()
+    var viewModel = PersonVm()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        personTableView.delegate = self
+        personTableView.dataSource = self
         
-        searchBar?.delegate = self
-        personTableView?.delegate = self
-        personTableView?.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshPersonList), name: NSNotification.Name("PersonListUpdated"), object: nil)
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
@@ -29,13 +30,17 @@ class PersonVC: UIViewController{
         
     }
     
+    @objc func refreshPersonList() {
+        viewModel.personLoading()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         viewModel.personLoading()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "personDetail" {
-            if let person = sender as? Kisiler {
+            if let person = sender as? KisilerModel {
                 let transtatitonVC = segue.destination as! DetailVC
                 transtatitonVC.kisi = person
             }
@@ -45,11 +50,19 @@ class PersonVC: UIViewController{
     
 }
 
+
+
+
 extension PersonVC : UISearchBarDelegate {
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.personSearch(inputText: searchText)
+        if searchText == "" {
+            viewModel.personLoading()
+        }else{
+            viewModel.personSearch(inputText: searchText)
+        }
     }
+    
 }
 
 
@@ -90,7 +103,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
             
             let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
-                self.viewModel.personDelete(kisi_id: person.kisi_id!)
+                self.viewModel.personDelete(kisi: person)
             }
             
             let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )
