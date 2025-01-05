@@ -281,7 +281,7 @@
         <!--Persons-->
         <scene sceneID="Mhp-Pq-qve">
             <objects>
-                <viewController id="Nmk-0m-M7e" customClass="PersonVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nmk-0m-M7e" customClass="KisilerVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4nE-PY-MSR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
