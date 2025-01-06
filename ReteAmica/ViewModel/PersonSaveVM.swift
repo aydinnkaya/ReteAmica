@@ -15,4 +15,9 @@ class PersonSaveVM{
     func personSave(kisi_ad:String, kisi_tel:String){
         pRepo.personSave(kisi_ad: kisi_ad, kisi_tel: kisi_tel)
     }
+    
+    
+    func personLoading(){
+        pRepo.personLoading()
+    }
 }

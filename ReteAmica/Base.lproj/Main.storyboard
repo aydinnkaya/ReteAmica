@@ -97,6 +97,7 @@
                             <constraint firstItem="zhk-hW-5se" firstAttribute="leading" secondItem="AbY-vF-klc" secondAttribute="leading" constant="25" id="vET-r7-2Us"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hsW-8t-kMg"/>
                     <connections>
                         <outlet property="tfPersonLastName" destination="fyz-yD-OQ8" id="zxL-Fj-FUR"/>
                         <outlet property="tfPersonName" destination="zhk-hW-5se" id="TQs-h4-UGQ"/>
@@ -184,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="3908" y="766"/>
         </scene>
-        <!--KisilerVC-->
+        <!--Favorites-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="KisilerVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Favorites" customClass="KisilerVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +281,7 @@
         <!--Persons-->
         <scene sceneID="Mhp-Pq-qve">
             <objects>
-                <viewController id="Nmk-0m-M7e" customClass="PersonVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nmk-0m-M7e" customClass="KisilerVC" customModule="ReteAmica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4nE-PY-MSR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,13 +307,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IBp-L6-Fnv">
                                                     <rect key="frame" x="16" y="17" width="64" height="66.333333333333329"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53O-1F-kLO">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53O-1F-kLO">
                                                             <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-EW-V8V">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-EW-V8V">
                                                             <rect key="frame" x="0.0" y="46" width="64" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -378,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cj-9Y-qtM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063" y="1930"/>
+            <point key="canvasLocation" x="2912" y="1926"/>
         </scene>
         <!--Recents-->
         <scene sceneID="DyP-lq-AHS">

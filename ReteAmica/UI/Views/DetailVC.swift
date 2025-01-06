@@ -13,7 +13,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var tfLastName: UITextField!
     
-    var kisi : Kisiler?
+    var kisi : KisilerModel?
     var viewModel = DetailVM()
     
     override func viewDidLoad() {
@@ -30,8 +30,8 @@ class DetailVC: UIViewController {
     
     @IBAction func buttonUpdate(_ sender: UIButton) {
         
-        if let personName = tfFirstName.text, let personPhone = tfPhone.text, let personId = kisi?.kisi_id {
-            viewModel.personUpdate(kisi_id: personId, kisi_ad: personName, kisi_tel: personPhone)
+        if let personName = tfFirstName.text, let personPhone = tfPhone.text, let k = kisi {
+            viewModel.personUpdate(kisi: k, kisi_ad: personName, kisi_tel: personPhone)
         }
     }
     
