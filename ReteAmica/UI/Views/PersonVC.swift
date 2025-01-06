@@ -11,28 +11,34 @@ class PersonVC: UIViewController{
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    var personList = [KisilerModel]()
-    var viewModel = PersonVm()
+    var personList = [Kisiler]()
+    var viewModel = PersonDaoRepository()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar.delegate = self
         personTableView.delegate = self
         personTableView.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshPersonList), name: NSNotification.Name("PersonListUpdated"), object: nil)
+
         
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
-            self.personTableView?.reloadData()
+            DispatchQueue.main.async{
+                self.personTableView.reloadData()
+            }
+            
         })
         
     }
     
     @objc func refreshPersonList() {
-        viewModel.personLoading()
-    }
+          viewModel.personLoading()
+      }
+      
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.personLoading()
@@ -40,7 +46,7 @@ class PersonVC: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "personDetail" {
-            if let person = sender as? KisilerModel {
+            if let person = sender as? Kisiler {
                 let transtatitonVC = segue.destination as! DetailVC
                 transtatitonVC.kisi = person
             }
@@ -50,19 +56,11 @@ class PersonVC: UIViewController{
     
 }
 
-
-
-
 extension PersonVC : UISearchBarDelegate {
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            viewModel.personLoading()
-        }else{
-            viewModel.personSearch(inputText: searchText)
-        }
-    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.personSearch(inputText: searchText)
+    }
 }
 
 
@@ -103,7 +101,7 @@ extension PersonVC : UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete", message: "\(person.kisi_ad!) Deleted ?", preferredStyle: .alert)
             
             let alertActionY = UIAlertAction(title: "Yes",style: .destructive){action in
-                self.viewModel.personDelete(kisi: person)
+                self.viewModel.personDelete(kisi_id: person.kisi_id!)
             }
             
             let alertActionC = UIAlertAction(title: "Cancel",style: .cancel )
