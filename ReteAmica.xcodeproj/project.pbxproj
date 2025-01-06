@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F74CE1D2D2BBB550073E2D7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F74CE1C2D2BBB550073E2D7 /* FirebaseFirestore */; };
 		0F7C5CA22D27BEC9005DDAAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0F7C5CA12D27BEC9005DDAAB /* RxSwift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7C5CA22D27BEC9005DDAAB /* RxSwift in Frameworks */,
+				0F74CE1D2D2BBB550073E2D7 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = ReteAmica;
 			packageProductDependencies = (
 				0F7C5CA12D27BEC9005DDAAB /* RxSwift */,
+				0F74CE1C2D2BBB550073E2D7 /* FirebaseFirestore */,
 			);
 			productName = ReteAmica;
 			productReference = 0F6392052D1C4733001EC0C0 /* ReteAmica.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0F7C5CA02D27BEC8005DDAAB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				0F74CE1B2D2BBB550073E2D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F6392062D1C4733001EC0C0 /* Products */;
@@ -344,6 +348,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F74CE1B2D2BBB550073E2D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
 		0F7C5CA02D27BEC8005DDAAB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -355,6 +367,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F74CE1C2D2BBB550073E2D7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F74CE1B2D2BBB550073E2D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		0F7C5CA12D27BEC9005DDAAB /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F7C5CA02D27BEC8005DDAAB /* XCRemoteSwiftPackageReference "RxSwift" */;
