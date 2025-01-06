@@ -18,7 +18,7 @@ class PersonVm{
         personLoading()
     }
     
-    func personDelete(kisi_id: Int){
+    func personDelete(kisi_id: String){
         pRepo.personDelete(kisi_id: kisi_id)
     }
     

@@ -7,22 +7,26 @@
 
 import Foundation
 import RxSwift
+import FirebaseFirestore
 
 
 class PersonDaoRepository {
     
     var personList = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var collectionPersons = Firestore.firestore().collection("Kisiler")
     
     func personSave(kisi_ad:String, kisi_tel:String){
-        print("Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
+        let newPerson : [String : Any] =  ["kisi_id" : "" ,"kisi_ad": kisi_ad, "kisi_tel": kisi_tel]
+        collectionPersons.document().setData(newPerson)
     }
     
     
-    func personUpdate(kisi_id: Int, kisi_ad:String, kisi_tel:String){
-        print("Kisi id: \(kisi_id), Kisi ad: \(kisi_ad), Kisi tel: \(kisi_tel)")
+    func personUpdate(kisi_id: String, kisi_ad:String, kisi_tel:String){
+        let updatePErson : [String : Any] =  ["kisi_ad": kisi_ad, "kisi_tel": kisi_tel]
+        collectionPersons.document(kisi_id).updateData(updatePErson)
     }
     
-    func personDelete(kisi_id: Int){
+    func personDelete(kisi_id: String){
         
     }
     
@@ -31,14 +35,25 @@ class PersonDaoRepository {
     }
     
     func personLoading(){
-        var list = Kisiler()
-        let initialList = [
-            Kisiler(kisi_id: 1, kisi_ad: "Aydin", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 2, kisi_ad: "Kelebek", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 3, kisi_ad: "Bebis", kisi_tel: "5314681288"),
-            Kisiler(kisi_id: 4, kisi_ad: "Hatun", kisi_tel: "5314681288")
-        ]
-        personList.onNext(initialList)
+        
+        collectionPersons.addSnapshotListener{ snapshot, error in
+            var list = [Kisiler]()
+            
+            if let documents = snapshot?.documents {
+                for document  in documents {
+                    let data = document.data()
+                    let kisi_id = document.documentID
+                    let kisi_ad = data["kisi_ad"] as? String ?? ""
+                    let kisi_tel = data["kisi_tel"] as? String ?? ""
+                    
+                    let person = Kisiler(kisi_id: kisi_id, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
+                    list.append(person)
+                }
+            }
+            
+            self.personList.onNext(list)
+            
+        }
     }
     
 }

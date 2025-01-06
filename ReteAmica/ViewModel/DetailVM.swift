@@ -12,7 +12,7 @@ class DetailVM{
     
     var pRepo = PersonDaoRepository()
     
-    func personUpdate(kisi_id: Int, kisi_ad:String, kisi_tel:String){
+    func personUpdate(kisi_id: String, kisi_ad:String, kisi_tel:String){
     
         pRepo.personUpdate(kisi_id: kisi_id, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
 

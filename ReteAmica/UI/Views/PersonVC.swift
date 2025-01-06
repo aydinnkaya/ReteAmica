@@ -22,12 +22,23 @@ class PersonVC: UIViewController{
         personTableView.delegate = self
         personTableView.dataSource = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshPersonList), name: NSNotification.Name("PersonListUpdated"), object: nil)
+
+        
         _ = viewModel.personList.subscribe(onNext: { list in
             self.personList = list
-            self.personTableView.reloadData()
+            DispatchQueue.main.async{
+                self.personTableView.reloadData()
+            }
+            
         })
         
     }
+    
+    @objc func refreshPersonList() {
+          viewModel.personLoading()
+      }
+      
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.personLoading()

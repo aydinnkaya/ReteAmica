@@ -31,6 +31,11 @@ class PersonSave: UIViewController {
             viewModel.personSave(kisi_ad: personName, kisi_tel: personPhone)
         }
         
+        NotificationCenter.default.post(name: NSNotification.Name("PersonListUpdated"), object: nil)
+
+        self.dismiss(animated: true)
+
+        
     }
     
     
