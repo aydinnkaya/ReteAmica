@@ -27,10 +27,29 @@ class PersonDaoRepository {
     }
     
     func personDelete(kisi_id: String){
-        
+        collectionPersons.document(kisi_id).delete()
     }
     
     func personSearch(inputText: String){
+        collectionPersons.addSnapshotListener{ snapshot, error in
+            var list = [Kisiler]()
+            
+            if let documents = snapshot?.documents {
+                for document  in documents {
+                    let data = document.data()
+                    let kisi_id = document.documentID
+                    let kisi_ad = data["kisi_ad"] as? String ?? ""
+                    let kisi_tel = data["kisi_tel"] as? String ?? ""
+                    
+                    if kisi_ad.lowercased().contains(inputText.lowercased()){
+                        let person = Kisiler(kisi_id: kisi_id, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
+                        list.append(person)
+                    }
+                    
+                }
+            }
+            self.personList.onNext(list)
+        }
         
     }
     
