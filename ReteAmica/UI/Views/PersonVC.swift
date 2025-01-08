@@ -46,7 +46,7 @@ class PersonVC: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "personDetail" {
-            if let person = sender as? Kisiler {
+            if let person = sender as? KisilerModel {
                 let transtatitonVC = segue.destination as! DetailVC
                 transtatitonVC.kisi = person
             }
