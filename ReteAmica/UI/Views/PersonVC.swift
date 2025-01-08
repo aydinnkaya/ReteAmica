@@ -59,7 +59,13 @@ class PersonVC: UIViewController{
 extension PersonVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.personSearch(inputText: searchText)
+        
+        if searchText == "" {
+            viewModel.personLoading()
+        }else {
+            viewModel.personSearch(inputText: searchText)
+
+        }
     }
 }
 
